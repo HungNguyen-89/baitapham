@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="txt" onchange="add_element_to_array()">
+    <button onclick="reverse()">Change</button>
+    <p id="txt_old"></p>
+    <p id="txt_new"></p>
+    <script>
+        let arr = [];
+        let i = 0;
+        function add_element_to_array() {
+            arr[i] = document.getElementById("txt").value;
+            i++;
+            document.getElementById("txt").value = "";
+        }
+        function reverse() {
+            document.getElementById("txt_old").innerHTML = "Mảng trước chuyển đổi" + "<br>" + arr;
+            arr.reverse();
+            document.getElementById("txt_new").innerHTML = "Mảng sau khi chuyển đổi" + "<br>" + arr;
+        }
+    </script>
+
+</body>
+
+</html>

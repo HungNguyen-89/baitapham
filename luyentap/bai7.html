@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <body>
+        <input type="text" id="txt" onchange="add_element_to_array()">
+        <input type="button" id="findMaxnumber" value="Check" onclick="check_number()">
+        <hr>
+        <p id="output"></p>
+        <p id="result"></p>
+    </body>
+    <script>
+        let x = 0;
+        let array = Array();
+        function add_element_to_array() {
+            array[x] = document.getElementById("txt").value;
+            x++;
+            document.getElementById("txt").value = "";
+        }
+        function check_number() {
+            let e = "";
+            let i;
+            let min = array[0];
+            for (i = 0; i < array.length; i++) {
+                if (array[i] < min) { min = array[i]; }
+                e += "Số thứ " + (i + 1) + " là " + array[i] + "<br>";
+            }
+            document.getElementById("output").innerHTML = "Số nhỏ nhất trong " + i + " số là " + min;
+            document.getElementById("result").innerHTML = e;
+        }
+    </script>
+
+</body>
+
+</html>

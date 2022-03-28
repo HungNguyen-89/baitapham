@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nhập vào các ký tự trong mảng<br>
+    <input type="text" id="txt1" onchange="add_element_to_array()"><br><br>
+    Nhập vào ký tự cần kiểm tra <br>
+    <input type="text" id="txt2" onchange="input()">
+    <button onclick="check()">Check</button>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <script>
+        let arr = [];
+        let i = 0;
+        function add_element_to_array() {
+            arr[i] = document.getElementById("txt1").value;
+            i++;
+            document.getElementById("txt1").value = "";
+        }
+        function input(number) {
+            let dem = 0;
+            let i;
+            for (i = 0; i < arr.length; i++) {
+                if (number == arr[i]) {
+                    dem = dem + 1;
+                }
+            }
+            return dem;
+        }
+        function check() {
+            let num = document.getElementById("txt2").value;
+            let dem = input(num);
+            if (dem != 0) {
+                document.getElementById("output1").innerHTML = "Mảng ký tự đã nhập vào" + "<br>" + arr;
+                document.getElementById("output2").innerHTML = "Ký tự " + num + " xuất hiện " + dem + " lần";
+            }
+            else
+                document.getElementById("output1").innerHTML = "Mảng ký tự đã nhập vào" + "<br>" + arr;
+            document.getElementById("output2").innerHTML = "Ký tự " + num + " không xuất hiện trong mảng cần kiểm tra";
+        }
+    </script>
+
+</body>
+
+</html>

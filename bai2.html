@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <body>
+        Nhập vào số cần kiểm tra số nguyên tố:<br>
+        <input type="text" id="input" onchange="isPrime(this.value)">
+        <p id="output"></p>
+  
+        <script>
+            function isPrime(number) {
+                if (number < 2) {
+                    document.getElementById("output").innerHTML = number + " không phải là số nguyên tố";
+                }
+                else {
+                    let n = 2;
+                    let dem = 1;
+                    while (n > 0) {
+                        let i;
+                        for (i = 2; i < (number - 1); i++) {
+                            if (number % i == 0) {
+                                dem++;
+                            }
+                        }
+                        if (n > number) {
+                            break;
+                        }
+                        n++;
+                    }
+                    if (dem == 1)
+                        document.getElementById("output").innerHTML = number + " là số nguyên tố";
+                    else
+                        document.getElementById("output").innerHTML = number + " không phải là số nguyên tố";
+                }
+            }
+        </script>
+    </body>
+
+</body>
+
+</html>

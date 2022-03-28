@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <body>
+        <h3>Thêm sản phẩm mới</h3>
+        <input type="text" id="txt" placeholder="Sản phẩm mới">
+        <button onclick="add()">Add</button><br>
+        <h3>Hiển thị tất cả sản phẩm</h3>
+        <div id="result"></div><br>
+        <div id="modify"></div>
+        <script>
+            let x = 0;
+            let array = ["iPhone 6", "Samsung Galaxy S10"];
+            let i;
+            displayAll();
+            function displayAll() {
+                let table = "<table border='1'> <tr><td> Tên sản phẩm</td>" +
+                    '<td></td>' +
+                    '<td>' + array.length + ' sản phẩm </td></tr>'
+                for (i = 0; i < array.length; i++) {
+                    table += "<tr><td>" + array[i] + "</td>" + '<td><button onclick="editProduct(' + i + ')">Edit</button></td>' +
+                        '<td><button onclick="deleteProduct(' + i + ')">Delete</button></td></tr>';
+                }
+                table = table + "</table>";
+                document.getElementById("result").innerHTML = table;
+            }
+            function add() {
+                array.push(document.getElementById("txt").value); 
+                document.getElementById("txt").value = "";
+                displayAll();
+            }
+            function editProduct(index) {
+                let str = '<input type="text" id="editProduct" value="' + array[index] + '">'
+                    + '<button onclick="saveProduct(' + index + ')">Sửa</button></td></tr>';
+                document.getElementById("modify").innerHTML = str;
+            }
+            function deleteProduct(index) {
+                array.splice(index, 1);
+                displayAll();
+            }
+            function saveProduct(index) {
+                if (confirm("Bạn có chắc chắn không?") == true) {
+                    array[index] = document.getElementById("editProduct").value;
+                    document.getElementById("modify").innerHTML = "";
+                    displayAll();
+                }
+                else {
+                    document.getElementById("modify").innerHTML = "";
+                    displayAll();
+                }
+            }
+        </script>
+
+    </body>
+
+</html>

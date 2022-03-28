@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function reverse_num(n) {
+            n = n.toString()
+            return n.split("").reverse().join("");
+        }
+        function symmetrical_num(n) {
+            let flag = false;
+            if (reverse_num(n) == n) flag = true;
+            return flag;
+        }
+        let txt = + prompt("Nhập vào chuỗi ký tự cần kiểm tra");
+        let flag = symmetrical_num(txt);
+        if (flag == true) {
+            alert(txt + " là một chuỗi đối xứng");
+        }
+        else {
+            alert(txt + " không phải là một chuỗi đối xứng");
+        }
+    </script>
+
+</body>
+
+</html>
